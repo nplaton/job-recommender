@@ -19,7 +19,13 @@ def get_url(job, city, state):
     url = 'http://www.indeed.com/jobs?q=' + query_job + '&l=' + query_city + '%2C+' + state
 
     return url
+def request_site(website):
+    try:
+        site = requests.get(website).text #Connects to Website
+    except:
+        return 'Data Extraction Failed'
 
+    return BeautifulSoup(site, "html.parser")
 
 def cleaning_site(website):
     try:
@@ -27,8 +33,20 @@ def cleaning_site(website):
     except:
         return 'Data Extraction Failed'
 
-    soup = BeautifulSoup(site, "html.parser") # Get the html from the site
+    soup = BeautifulSoup(site, "html.parser")
+    for row in soup.find_all(['script', 'style']):
+        row.extract()
 
+    text = (' ').join([job.text.strip().encode('ascii','ignore') for job in soup.findAll('li')])
+    stop_words = set(stopwords.words("english"))
+    text = [word for word in text.split() if not word in stop_words]
+    text = " ".join([word for word in text])
+    return text
+
+'''
+def cleaning_site(website):
+
+    soup = request_site(website)
     for row in soup.find_all(['script', 'style']):
         row.extract()
 
@@ -36,12 +54,14 @@ def cleaning_site(website):
     text = re.sub("[^a-zA-Z.+3]"," ", text)
     text = text.lower()
     text = text.decode('unicode_escape').encode('ascii', 'ignore')
+
+
     stop_words = set(stopwords.words("english"))
     text = [word for word in text.split() if not word in stop_words]
     text = " ".join([word for word in text])
 
     return text
-
+'''
 def scraping_indeed(job = None, city = None, state = None):
 
     if job is None:
@@ -54,9 +74,7 @@ def scraping_indeed(job = None, city = None, state = None):
     else:
         indeed_url = 'http://www.indeed.com/jobs?q=' + job + '&l='
 
-
-    site = requests.get(indeed_url).text
-    soup = BeautifulSoup(site, "html.parser")
+    soup = request_site(indeed_url)
 
     # Scraping number of pages to loop through
 
@@ -89,6 +107,7 @@ def scraping_indeed(job = None, city = None, state = None):
             url = indeed_url + '&start=' + str((page-1)*10)
 
         print 'Scraping page %d of %d pages' %(page, total_pages+1)
+        soup = request_site(url)
 
         #Scraping job title and cleaning data
         job_titles = soup.findAll('a', rel = 'nofollow', target="_blank")
@@ -104,9 +123,13 @@ def scraping_indeed(job = None, city = None, state = None):
         companies = [company.text.strip().encode('ascii','ignore') for company in companies]
 
         # Extracting every job description link of the current page in indeed
-        links = soup.findAll('a', href=True, rel='nofollow')
-        links = [line.get('href') for line in links]
-        job_links = [link for link in links if 'clk' in link]
+        links = soup.findAll('a', href=True, rel='nofollow', class_="turnstileLink")
+        job_links = [line.get('href') for line in links]
+        if len(job_links) != len(companies):
+            links = soup.findAll('a', href=True, rel='nofollow')
+            job_links = [link for link in links if 'clk' in link]
+
+        #ob_links = [link for link in links if 'clk' in link]
         all_urls = []
 
         #Creating a list containing the job links for the current page in indeed
@@ -118,16 +141,22 @@ def scraping_indeed(job = None, city = None, state = None):
         for url in all_urls:
             job_descriptions.append(cleaning_site(url))
 
+        if len(job_links) != len(companies):
+            print "companies and links do not match"
+            continue
 
+        print
         final_descriptions.extend(job_descriptions)
         final_companies.extend(companies)
         final_locations.extend(locations)
         final_job_titles.extend(job_titles)
 
+
         sleep(1)
+        if page == 60:
+            break
 
     data = pd.DataFrame({'job_title' : final_job_titles, 'job_description' : final_descriptions, 'company' : final_companies, 'location' : final_locations })
-
     return data
 
 if __name__ == '__main__':
