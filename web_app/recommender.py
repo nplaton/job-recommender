@@ -66,5 +66,5 @@ class user_recommendations(object):
 
         matrix_skills = self.vectorize()
         df['cosine_similarity'] = [cosine(x, matrix_skills) for x in df_matrix]
-        df.sort_values('cosine_similarity', axis= 0)
+        df = df.sort_values('cosine_similarity', axis= 0)
         return df

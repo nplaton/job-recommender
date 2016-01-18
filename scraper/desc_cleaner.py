@@ -1,13 +1,5 @@
-from bs4 import BeautifulSoup
-import requests
 import re
 from nltk.corpus import stopwords
-import pandas as pd
-import numpy as np
-import urllib
-import sys
-import cPickle
-import re
 
 def get_bullet_points(soup):
 

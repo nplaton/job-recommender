@@ -10,21 +10,28 @@ from nltk.corpus import stopwords
 from nltk import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
 import re
+import pymongo
+from collections import defaultdict
+
 
 def load_clean_df():
     '''
     Purpose: Data is loaded from a csv file
     Output: DataFrame that had been merged and cleaned
     '''
-    df = pd.read_csv('data/all_df')
-    df = df[df['job_description'] != 'Data Extraction Failed']
-    df = df.dropna().drop_duplicates(['company', 'job_description', 'job_title', 'location'])
+    cli = pymongo.MongoClient()
+    db = cli.project
+    coll = db.Linkedin
+
+    cursor = coll.find()
+
+    df = pd.DataFrame(list(cursor))
     df.to_pickle('web_app/models/df.pkl')
     return df
 
 def tokenizer(description):
     '''
-    Purpose: Tokenize, stem  and remove stopwords from job_descriptions
+    Purpose: Tokenize, stem  and remove stopwords from descriptions
     Input: string
     Output: List of string of words
     '''
@@ -49,11 +56,11 @@ def vectorize(stemmed_description):
     vectorizer = TfidfVectorizer(stop_words='english', max_features=1000)
     vectorizer = vectorizer.fit(stemmed_description)
     pickle.dump(vectorizer, open('web_app/models/vectorizer.pkl', 'wb'))
-    vectorized_df = vectorizer.transform(df['job_description'])
+    vectorized_df = vectorizer.transform(df['description'])
     pickle.dump(vectorized_df, open('web_app/models/vectorized_df.pkl', 'wb'))
-    return vectorizer, vectorized_df
+    return vectorizer, vectorized_df 
 
 if __name__ == '__main__':
 
     df = load_clean_df()
-    vectorizer, vectorized_df = vectorize(df['job_description'])
+    vectorizer, vectorized_df = vectorize(df['description'])

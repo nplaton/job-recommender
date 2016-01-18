@@ -1,17 +1,13 @@
 from bs4 import BeautifulSoup
-import re
-import requests
-from time import sleep
-from nltk.corpus import stopwords
-import pandas as pd
-import os
-import numpy as np
-import urllib
-from selenium import webdriver
-import sys
 import cPickle
-from langdetect import detect
+import pymongo
+from langdetect import detect # filter out german, french spanish
 from desc_cleaner import get_bullet_points, get_bullet_strings
+from clean_df import featurizing_locations
+
+'''
+
+'''
 
 
 def get_description(soup):
@@ -31,6 +27,12 @@ def get_description(soup):
     return text
 
 def get_logo(soup):
+    '''
+    Purpose: Extracting the sources of the company logos
+    Input: html beatiful soup
+    Output: String
+    '''
+
     try:
         return str(soup.find('img', class_="logo lazy-load lazy-load-loaded")['src'])
     except:
@@ -60,6 +62,8 @@ def get_post_link(soup):
         return
 
 def get_company(soup):
+    '''
+    '''
     try:
         return soup.find('span', class_="company").text.encode('ascii', 'ignore')
     except:
@@ -68,6 +72,8 @@ def get_company(soup):
         return
 
 def get_title(soup):
+    '''
+    '''
     try:
         return soup.find('h1', class_="title", itemprop="title").text.encode('ascii', 'ignore')
     except:
@@ -76,15 +82,21 @@ def get_title(soup):
         return
 
 def get_location(soup):
+    '''
+    '''
     try:
-        return soup.find('span', itemprop="address").text.encode('ascii', 'ignore')
-
+        soup_address = soup.find('span', itemprop="address").text
     except:
         print "\n*****************"
         print "Check get_location"
-        return
+        return None, None, None
+    
+    full_address, address, location = featurizing_locations(soup_address)
+    return full_address, address, location
 
 def get_company_link(soup):
+    '''
+    '''
 
     try:
         return soup.find('a', class_="company")['href']
@@ -104,33 +116,36 @@ def big_df(soup):
     logo = get_logo(soup)
     title = get_title(soup)
     company = get_company(soup)
-    location = get_location(soup)
     job_post_link = get_post_link(soup)
     company_link = get_company_link(soup)
+    full_address, scraped_address, location = get_location(soup)
+    return company, title, logo, description, job_post_link, \
+            company_link, full_address, scraped_address, location
 
-    return location, company, title, logo, description, job_post_link, company_link
+def not_in_database(company, title, scraped_address, coll):
+    '''
+    '''
+    if coll.find({'company' : company, 'title' : title, 'scraped_address' : scraped_address}).count() < 1:
+        return True
+    else:
+        return False
 
 def main():
     '''
     Purpose: Loop through all of the files in the directory, where I have all
     of my html files stored.
-    All the data is consolidated in a pandas Dataframe and written to disk
+    Every loop checks one job posting and updates the mongodb with all the data needed
     '''
+    
+    cli = pymongo.MongoClient()
+    db = cli.project
+    coll = db.Linkedin
+
     global count
     count = 0
     countries = cPickle.load(open('data/countries.p', 'rb'))
-    #countries = ['ch', 'es']
     jobs = ['Data Scientist', 'Data Science']
-
-    all_locations = []
-    all_companies = []
-    all_titles = []
-    all_logos = []
-    all_descriptions = []
-    all_job_links = []
-    all_logo_links = []
-    all_company_links = []
-
+    #countries = ['ch', 'es']
 
     for job in jobs:
         for country in countries:
@@ -140,29 +155,29 @@ def main():
                 try:
                     html = urllib.urlopen(filename)
                     soup = BeautifulSoup(html, "html.parser")
-                except:
+                except: 
                     break
                 #print filename
+                company, title, logo, description, job_post_link, \
+                company_link, full_address, scraped_address, location = big_df(soup)
 
-                location, company, title, logo, description, \
-                job_post_link, company_link= big_df(soup)
+                job_post = {'company': company,
+                            'title' : title, 
+                            'logo' : logo,
+                            'description' : description,
+                            'job_post_link' : job_post_link,
+                            'company_link' : company_link, 
+                            'full_address' : full_address, 
+                            'scraped_address' : scraped_address, 
+                            'location' :  location,
+                            'country' :country
+                            }
 
-                all_locations.append(location)
-                all_companies.append(company)
-                all_titles.append(title)
-                all_logos.append(logo)
-                all_descriptions.append(description)
-                all_job_links.append(job_post_link)
-                all_company_links.append(company_link)
-         
+                if not_in_database(company, title, scraped_address, coll):
+                    print "Insert made"
+                    coll.insert_one(job_post)
 
-    df = pd.DataFrame({'job_title' : all_titles, 'job_description' : all_descriptions, \
-    'company' : all_companies, 'location' : all_locations, 'job_link' : all_job_links, \
-    'logo' : all_logos, 'company_link' : all_company_links})
-
-
-    df.to_csv('data/all_df')
-
+    cli.close()
 
 if __name__ == '__main__':
     main()

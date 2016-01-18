@@ -7,6 +7,10 @@ import sys
 import cPickle
 import numpy as np
 
+'''
+Scraper.py
+'''
+
 def scrapying_selenium(url):
     '''
     Purpose: Requesting access to Linkedin, waiting until javascript loads and then
