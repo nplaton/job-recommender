@@ -8,8 +8,12 @@ import cPickle
 import numpy as np
 
 '''
-Scraper.py
+        Scraper.py:
+        Scrapes through all of the data science jobs posted in Linkedin. All of
+        the html files contained in each job posting are saved to disk with all 
+        of the content.
 '''
+
 
 def scrapying_selenium(url):
     '''

@@ -4,11 +4,7 @@ import pymongo
 from langdetect import detect # filter out german, french spanish
 from desc_cleaner import get_bullet_points, get_bullet_strings
 from clean_df import featurizing_locations
-
-'''
-
-'''
-
+import urllib
 
 def get_description(soup):
     global count

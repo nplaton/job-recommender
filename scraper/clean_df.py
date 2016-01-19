@@ -1,6 +1,3 @@
-import pandas as pd
-import numpy as np
-from collections import Counter
 import re
 from geopy.geocoders import Nominatim
 
@@ -11,23 +8,23 @@ def cleaning_string(city):
 
 	'''
 
-    city = city.replace('Metro', '')
-    city = city.replace('Area', '')
-    city = city.replace('Bay', '')
-    city = city.replace('Greater', '')
-    city = city.replace('(HQ)', '')
-    city = city.replace('L5-', '')
-    city = city.replace('- CNVR  60606', '')
-    city = city.replace('San Francisco / ','')
-    city = city.replace('North America','')
-    city = city.replace('US','')
-    city = city.replace('DC','')
-    city = city.replace('Downtown','')
-    city = city.replace('Manhattan','NYC')
-    city = city.replace('-',' ')
-    city = city.strip()
-    city = city.split('/')[0]
-    return city
+	city = city.replace('Metro', '')
+	city = city.replace('Area', '')
+	city = city.replace('Bay', '')
+	city = city.replace('Greater', '')
+	city = city.replace('(HQ)', '')
+	city = city.replace('L5-', '')
+	city = city.replace('- CNVR  60606', '')
+	city = city.replace('San Francisco / ','')
+	city = city.replace('North America','')
+	city = city.replace('US','')
+	city = city.replace('DC','')
+	city = city.replace('Downtown','')
+	city = city.replace('Manhattan','NYC')
+	city = city.replace('-',' ')
+	city = city.strip()
+	city = city.split('/')[0]
+	return city
 
 def featurizing_locations(scraped_city):
     geolocator = Nominatim()

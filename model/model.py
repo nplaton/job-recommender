@@ -16,16 +16,19 @@ from collections import defaultdict
 
 def load_clean_df():
     '''
-    Purpose: Data is loaded from a csv file
+    Purpose: Data is loaded from mongodb, change countries to more meaningful name
+    e.g. au -> Australia
     Output: DataFrame that had been merged and cleaned
     '''
     cli = pymongo.MongoClient()
     db = cli.project
     coll = db.Linkedin
-
     cursor = coll.find()
-
     df = pd.DataFrame(list(cursor))
+
+    countries_dict = pickle.load(open('web_app/models/countries_dict.pkl', 'r'))
+    df["country"] = df.country.apply(lambda x: countries_dict[x])
+
     df.to_pickle('web_app/models/df.pkl')
     return df
 

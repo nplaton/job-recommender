@@ -1,0 +1,632 @@
+(dp0
+VVancouver, Canada
+p1
+(F49.2608944
+F-123.1139383
+tp2
+sVLima, Peru
+p3
+(F-12.0
+F-76.833333
+tp4
+sVShenzhen, China
+p5
+(F22.5442673
+F114.0545327
+tp6
+sVPhoenix, USA
+p7
+(F33.4467681
+F-112.0756724
+tp8
+sVMedellin, Colombia
+p9
+(F6.2443382
+F-75.573553
+tp10
+sVMesa, USA
+p11
+(F33.436188
+F-111.586066076293
+tp12
+sVLondon, United Kingdom 
+p13
+(F51.5073219
+F-0.1276473
+tp14
+sVHangzhou, China 
+p15
+(F30.2756741
+F120.1504858
+tp16
+sVKarachi, Pakistan 
+p17
+(F24.8667795
+F67.0311286
+tp18
+sVJohannesburg, South Africa
+p19
+(F-26.205
+F28.0497222
+tp20
+sVMonterrey, Mexico
+p21
+(F25.6764922
+F-100.3060828
+tp22
+sVAthens, Greece
+p23
+(F37.9841493
+F23.7279843
+tp24
+sVSuzhou, China
+p25
+(F31.2984758
+F120.622239
+tp26
+sVSingapore, Singapore
+p27
+(F1.2904527
+F103.852038
+tp28
+sVShenyang, China
+p29
+(F41.8045293
+F123.4277858
+tp30
+sVOsaka, Japan
+p31
+(F34.6852955
+F135.5145684
+tp32
+sVRiyadh, Saudi Arabia
+p33
+(F24.6319692
+F46.7150648
+tp34
+sVChengdu, China 
+p35
+(F30.6765553
+F104.0612783
+tp36
+sVJakarta, Indonesia
+p37
+(F-6.1753941
+F106.8271826
+tp38
+sVManila, Philippines
+p39
+(F14.5906216
+F120.9799696
+tp40
+sVAustin, USA
+p41
+(F30.2711286
+F-97.7436994
+tp42
+sVChicago, USA
+p43
+(F41.8755546
+F-87.6244212
+tp44
+sVNaples, Italy
+p45
+(F40.8359336
+F14.2487826
+tp46
+sVTianjin, China 
+p47
+(F39.1235635
+F117.1980785
+tp48
+sVVienna, Austria
+p49
+(F48.2083537
+F16.3725042
+tp50
+sVSalvador, Brazil 
+p51
+(F-12.9822499
+F-38.4812772
+tp52
+sVKhartoum, Sudan 
+p53
+(F15.5933247
+F32.5356502
+tp54
+sVNew York, USA 
+p55
+(F40.7305991
+F-73.9865812
+tp56
+sVKuala Lumpur, Malaysia
+p57
+(F3.1570976
+F101.7009528
+tp58
+sVSofia, Bulgaria
+p59
+(F42.6977211
+F23.3225964
+tp60
+sVZhengzhou, China
+p61
+(F34.7591877
+F113.6524076
+tp62
+sVGuangzhou, China 
+p63
+(F23.1300037
+F113.259001
+tp64
+sVAlexandria, Egypt
+p65
+(F31.1990035
+F29.8943785
+tp66
+sVDetroit, USA
+p67
+(F42.3486635
+F-83.0567375
+tp68
+sVManchester, UK
+p69
+(F53.4791466
+F-2.2447445
+tp70
+sVMontevideo, Uruguay
+p71
+(F-34.9059039
+F-56.1913569
+tp72
+sVShanghai, China
+p73
+(F31.2253441
+F121.4888922
+tp74
+sVHo Chi Minh City, Vietnam
+p75
+(F10.7758439
+F106.7017555
+tp76
+sVHouston, USA
+p77
+(F29.7589382
+F-95.3676973
+tp78
+sVHarbin, China 
+p79
+(F45.7656666
+F126.6160584
+tp80
+sVMumbai, India
+p81
+(F18.9523804
+F72.8327112
+tp82
+sVStockholm, Sweden
+p83
+(F59.3251172
+F18.0710935
+tp84
+sVBandung, Indonesia 
+p85
+(F-6.9344693
+F107.6049539
+tp86
+sVQuanzhou, China
+p87
+(F25.22314005
+F118.149366456272
+tp88
+sVNanjing, China
+p89
+(F32.0609158
+F118.7916065
+tp90
+sVSaint Petersburg, Russia
+p91
+(F59.9393657
+F30.3153628
+tp92
+sVTokyo, Japan
+p93
+(F34.2255804
+F139.294774527387
+tp94
+sVGeneva, Switzerland
+p95
+(F46.2017559
+F6.1466014
+tp96
+sVTaipei, Taiwan 
+p97
+(F25.0375167
+F121.5637
+tp98
+sVGuadalajara, Mexico
+p99
+(F20.676143
+F-103.3469982
+tp100
+sVAccra, Ghana
+p101
+(F5.5600141
+F-0.2057436
+tp102
+sVAnkara, Turkey
+p103
+(F39.9220794
+F32.853758
+tp104
+sVSeattle, USA
+p105
+(F47.6038321
+F-122.3300624
+tp106
+sVWellington, New Zealand
+p107
+(F-41.2887638
+F174.7772239
+tp108
+sVMexico City, Mexico
+p109
+(F19.4325301
+F-99.1332102
+tp110
+sVRecife, Brazil 
+p111
+(F-8.0581077
+F-34.8979047
+tp112
+sVTehran, Iran
+p113
+(F35.686172
+F51.4223519
+tp114
+sVSan Jose, USA
+p115
+(F37.3361905
+F-121.8905833
+tp116
+sVPorto Alegre, Brazil
+p117
+(F-30.0282658
+F-51.228427
+tp118
+sVEssen, Germany
+p119
+(F51.4572062
+F7.0114963
+tp120
+sVQingdao, China
+p121
+(F36.0895093
+F120.3497193
+tp122
+sVDongguan, China
+p123
+(F23.0449275
+F113.7524781
+tp124
+sVBuenos Aires, Argentina
+p125
+(F-34.612869
+F-58.4459789
+tp126
+sVSan Diego, USA
+p127
+(F32.7174209
+F-117.1627714
+tp128
+sVCologne, Germany
+p129
+(F50.9383611
+F6.9599738
+tp130
+sVDelhi, India
+p131
+(F28.6572914
+F77.2272603
+tp132
+sVSao Paulo, Brazil 
+p133
+(F-23.5476397
+F-46.637365
+tp134
+sVBoston, USA
+p135
+(F42.3604823
+F-71.0595678
+tp136
+sVLagos, Nigeria
+p137
+(F6.4550575
+F3.3941795
+tp138
+sVBarcelona, Spain 
+p139
+(F41.3825596
+F2.1771353
+tp140
+sVBelo Horizonte, Brazil
+p141
+(F-19.9227318
+F-43.9450948
+tp142
+sVXi'an-Xianyang, China
+p143
+(F34.3049864
+F108.7256803
+tp144
+sVAbidjan, Cote d'Ivoire
+p145
+(F5.4091179
+F-4.0422099
+tp146
+sVWuhan, China
+p147
+(F30.5960213
+F114.2992796
+tp148
+sVEdinburgh, UK
+p149
+(F55.9483544
+F-3.1931186
+tp150
+sVMadrid, Spain
+p151
+(F40.4167047
+F-3.7035825
+tp152
+sVMoscow, Russia
+p153
+(F55.7516335
+F37.6187042
+tp154
+sVToronto, Canada
+p155
+(F43.6529206
+F-79.3849008
+tp156
+sVNagoya, Japan 
+p157
+(F35.183333
+F136.9
+tp158
+sVSurabaya, Indonesia
+p159
+(F-7.2459717
+F112.7378266
+tp160
+sVBeijing, China 
+p161
+(F39.9059631
+F116.391248
+tp162
+sVHong Kong, Hong Kong 
+p163
+(F22.2793278
+F114.1628131
+tp164
+sVBangkok, Thailand 
+p165
+(F13.5859219
+F100.416086601645
+tp166
+sVAhmedabad, India
+p167
+(F23.0216238
+F72.5797068
+tp168
+sVPune, India
+p169
+(F18.64395815
+F73.9325681901252
+tp170
+sVSan Francisco, USA
+p171
+(F37.7792768
+F-122.4192704
+tp172
+sVOakland, USA
+p173
+(F37.8044557
+F-122.2713563
+tp174
+sVDalian, China 
+p175
+(F38.920716
+F121.6388678
+tp176
+sVSeoul, South Korea
+p177
+(F37.5666791
+F126.9782914
+tp178
+sVMiami, USA
+p179
+(F25.7742658
+F-80.1936589
+tp180
+sVBengaluru, India
+p181
+(F12.9791198
+F77.5912997
+tp182
+sVCharlotte, USA
+p183
+(F35.2270869
+F-80.8431268
+tp184
+sVCairo, Egypt 
+p185
+(F30.0488185
+F31.2436663
+tp186
+sVChennai, India
+p187
+(F13.0796914
+F80.2829533
+tp188
+sVBerlin, Germany
+p189
+(F52.5170365
+F13.3888599
+tp190
+sVAtlanta, USA
+p191
+(F33.7490987
+F-84.3901849
+tp192
+sVSantiago, Chile
+p193
+(F-33.4377968
+F-70.6504451
+tp194
+sVOslo, Norway
+p195
+(F59.9132694
+F10.7391112
+tp196
+sVDallas-Fort Worth, USA
+p197
+(F32.735794
+F-97.2299579
+tp198
+sVParis, France 
+p199
+(F48.8565056
+F2.3521334
+tp200
+sVBudapest, Hungary
+p201
+(F47.4983815
+F19.0404707
+tp202
+sVSurat, India
+p203
+(F21.1864607
+F72.8081281
+tp204
+sVFuzhou, China
+p205
+(F26.0771539
+F119.2914774
+tp206
+sVBirmingham, UK
+p207
+(F52.4813679
+F-1.8980726
+tp208
+sVBaghdad, Iraq
+p209
+(F33.3024248
+F44.3787992
+tp210
+sVLos Angeles, USA 
+p211
+(F34.0543942
+F-118.2439408
+tp212
+sVPhiladelphia, USA 
+p213
+(F39.9523993
+F-75.1635898
+tp214
+sVMelbourne, Australia
+p215
+(F-37.8142175
+F144.9631608
+tp216
+sVHyderabad, India
+p217
+(F17.3616227
+F78.4747305
+tp218
+sVRome, Italy
+p219
+(F41.8933439
+F12.4830718
+tp220
+sVZürich, Switzerland
+p221
+(F47.3685586
+F8.5404434
+tp222
+sVLuanda, Angola
+p223
+(F-8.8271655
+F13.2436665
+tp224
+sVMilan, Italy 
+p225
+(F45.4667971
+F9.1904984
+tp226
+sVRio de Janeiro, Brazil
+p227
+(F-22.9110137
+F-43.2093727
+tp228
+sVAuckland, New Zealand
+p229
+(F-36.8534664
+F174.7655514
+tp230
+sVDhaka, Bangladesh
+p231
+(F23.7593572
+F90.3788136
+tp232
+sVYangoon, Myanmar
+p233
+(F19.7401293
+F96.0314861
+tp234
+sVWashington, D.C., USA
+p235
+(F38.8996378
+F-77.0222541
+tp236
+sVBogota, Colombia
+p237
+(F4.5980478
+F-74.0760867
+tp238
+sVPrague, Czech Republic
+p239
+(F50.0874401
+F14.4212556
+tp240
+sVCalcutta, India 
+p241
+(F22.568746
+F88.3462999
+tp242
+sVIstanbul, Turkey
+p243
+(F41.0096334
+F28.9651646
+tp244
+sVLahore, Pakistan 
+p245
+(F31.5621916
+F74.3228517
+tp246
+sVKinshasa, Congo (DRC) 
+p247
+(F-2.9814344
+F23.8222636
+tp248
+sVHamburg, Germany
+p249
+(F53.5437641
+F10.0099133
+tp250
+sVSydney, Australia
+p251
+(F-33.8548156
+F151.2164539
+tp252
+s.
